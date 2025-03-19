@@ -1,0 +1,39 @@
+// Variables
+header{
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background:linear-gradient(1deg, rgba(14,102,85,1) 0%, rgba(52,73,94,1) 100%);
+    .abrir-menu{
+        display: none;
+    }
+    h1{
+        font-size: 2.2em;
+        font-weight: 700;
+        color: #FDFEFE;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    li{
+        list-style: none;
+    }
+    a{
+        padding: 1rem 2rem;
+        color: #e5e8e8;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.4seg;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.4;
+            color: lightcyan;
+            font-weight: 900;
+        }
+    }
+    
+}

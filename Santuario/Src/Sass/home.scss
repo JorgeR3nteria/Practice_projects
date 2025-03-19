@@ -1,0 +1,64 @@
+@use 'reset';
+@use 'nav';
+@use 'responsive';
+
+// Variables Globales
+$col-txt: #FDFEFE;
+$col-tit: #660000;
+$color-fondo: #aab7b8;
+$color-boton: linear-gradient(1deg, rgba(14,102,85,1) 0%, rgba(52,73,94,1) 100%);
+
+
+body{
+    background: $color-fondo;
+    min-height: 100vh;
+}
+
+#inicio{
+    padding: 1% 1%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    font-size: 1.2rem;
+    h2{
+        color:$col-txt;
+    }
+    button{
+        margin: 1% 1%;
+        padding: 1.2rem;
+        width: 13%;
+        color: #FDFEFE;
+        background:linear-gradient(1deg, rgba(14,102,85,1) 0%, rgba(52,73,94,1) 100%);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.3rem;
+        border-radius: 2rem;
+    }
+    p{
+        font-size: 1.3rem;
+        margin-top: 1%;
+    }
+}
+#evolucion{
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin: 1% 0;
+    h2{
+        text-align: center;
+        font-style: italic;
+        font-size: 2rem;
+        font-weight: 900;
+        color: $col-tit;
+    }
+    h3{
+        color: darkred;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+    p{
+        font-size: 1.3rem;
+        margin-top: 1%;
+    }
+}
