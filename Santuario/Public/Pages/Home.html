@@ -12,39 +12,113 @@
 
 <body>
     <header>
-        <h1>Santuario Profesional</h1>
-        <i class="fa fa-bars abrir-menu"></i>
+        <a class="logo" href="#">Santuario Profesional</h1>
+        <i class="fa fa-bars fa-2x menu-icon"></i>
         <nav>
-            <div class="cont-menu"></div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
-                <li><a href="#evolucion">Evolución</a></li>
-                <li><a href="#proyectos">Mis proyectos</a></li>
-                <li><a href="#contact">Contactame</a></li>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre mi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#evo" class="nav-link">Evolución</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Mis proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#portfolio" class="nav-link">Portafolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contactame</a>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="inicio">
+        <section id="home">
             <h2>Bienvenidos a mi "Santuario Profesional"</h2>
             <p>Un espacio digital donde registraré mi evolución como programador, compartiré mis proyectos, desafíos
-                enfrentados e iré mostrando las habilidades adquiridas en mi camino como programador hasta convertirme en un
-                desarrollador full stack.</p>
+                enfrentados e iré mostrando las habilidades adquiridas en mi camino como programador hasta convertirme
+                en un desarrollador full stack.</p>
             <button href="#" class="btn">Contáctame</button>
         </section>
-        <section id="evolucion">
+        <section id="evo">
             <h2>Evolución Personal</h2>
             <h3>¿Listo para ver evolución personal?</h3>
             <p>Explora mis proyectos y sé testigo de mi evolución como
-                programador. Descubre los desafíos superados, las habilidades adquiridas y el progreso en cada etapa de mi
-                aprendizaje.</p>
+                programador. Descubre los desafíos superados, las habilidades adquiridas y el progreso en cada etapa de
+                mi aprendizaje.</p>
             <div class="cards">
-                
-            </div>
+                <div class="cat-evo">
+                    <img src="https://img.freepik.com/vector-gratis/desarrolladores-web-dibujados-mano_23-2148819604.jpg?t=st=1742448013~exp=1742451613~hmac=1bc2ac006d3e54bd6d6c8461933d6cfe8905965f1ee6e0d7fda156f72cba67df&w=996"
+                        alt="Programador principiante">
+                    <div class="cont-card">
+                        <h2>Principiante</h2>
+                        <button>Explorar mas</button>
+                    </div>
+                </div>
+                <div class="cat-evo">
+                    <img src="https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Programador Intermedio">
+                    <div class="cont-card">
+                        <h2>Intermedio</h2>
+                        <button>Explorar mas</button>
+                    </div>
+                </div>
+                <div class="cat-evo">
+                    <img src="https://img.freepik.com/foto-gratis/vista-lateral-atractiva-programacion-hispana-desarrolladores-software-usando-computadora-mientras-trabaja-casa_662251-958.jpg?t=st=1742448148~exp=1742451748~hmac=2aa5fcdad64baf35f1ba300271850df9313b3d18c7ede5f1fba6762515efad73&w=740"
+                        alt="Programador avanzado">
+                    <div class="cont-card">
+                        <h2>Avanzado</h2>
+                        <button>Explorar mas</button>
+                    </div>
+                </div>
         </section>
+        </div>
     </main>
-    <script src="index.js"></script>
+
+    <footer>
+        <div class="cont-foot">
+            <a class="logo" href="./Home.html">Santuario Profesional</a>
+        </div>
+        <div class="cont-foot">
+            <div class="foot-nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="home" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about" class="nav-link">Sobre mi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="evo" class="nav-link">Evolución</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects" class="nav-link">Mis proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="portfolio" class="nav-link">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">Contactame</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="cont-foot">
+            <div class="contact-foot">
+                <i class="fa fa-whatsapp fa-2x"></i>
+                <i class="fa fa-telegram fa-2x"></i>
+                <i class="fa fa-envelope fa-2x"></i>
+            </div>
+        </div>
+        <hr>
+        <p id="copyright"></p>
+    </footer>
+    <script defer src="../../Src/Js/main.js"></script>
 </body>
 
 </html>

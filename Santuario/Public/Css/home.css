@@ -2,100 +2,55 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-header {
-  padding: 1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: linear-gradient(1deg, rgb(14, 102, 85) 0%, rgb(52, 73, 94) 100%);
-}
-header .abrir-menu {
-  display: none;
-}
-header h1 {
-  font-size: 2.2em;
-  font-weight: 700;
-  color: #FDFEFE;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-between;
-}
-nav ul li {
+  text-decoration: none;
   list-style: none;
 }
-nav ul a {
-  padding: 1rem 2rem;
-  color: #e5e8e8;
-  font-size: 1.4rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.4seg;
-  cursor: pointer;
-}
-nav ul a:hover {
-  opacity: 0.4;
-  color: lightcyan;
-  font-weight: 900;
-}
 
+@media screen and (max-width: 600px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2%;
+  }
+  .fa-bars {
+    color: aquamarine;
+  }
+  .footer {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
 body {
-  background: #aab7b8;
-  min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+  min-height: 100dvh;
+  position: relative;
+  scroll-behavior: smooth;
 }
 
-#inicio {
-  padding: 1% 1%;
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  font-size: 1.2rem;
-}
-#inicio h2 {
-  color: #FDFEFE;
-}
-#inicio button {
-  margin: 1% 1%;
-  padding: 1.2rem;
-  width: 13%;
-  color: #FDFEFE;
-  background: linear-gradient(1deg, rgb(14, 102, 85) 0%, rgb(52, 73, 94) 100%);
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.3rem;
-  border-radius: 2rem;
-}
-#inicio p {
-  font-size: 1.3rem;
-  margin-top: 1%;
+footer {
+  position: absolute;
+  background-color: #660000;
+  width: 100dvw;
+  height: 240px;
+  display: grid;
 }
 
-#evolucion {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  margin: 1% 0;
+.fa-whatsapp {
+  color: #25d366;
 }
-#evolucion h2 {
-  text-align: center;
-  font-style: italic;
-  font-size: 2rem;
-  font-weight: 900;
-  color: #660000;
+
+.fa-telegram {
+  color: #0088cc;
 }
-#evolucion h3 {
-  color: darkred;
-  font-size: 1.4rem;
-  font-weight: 600;
+
+.fa-envelope {
+  color: #0A2767;
 }
-#evolucion p {
-  font-size: 1.3rem;
-  margin-top: 1%;
+
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 /*# sourceMappingURL=home.css.map */

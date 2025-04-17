@@ -1,0 +1,99 @@
+home.scss
+
+body{
+    background: $color-fondo;
+    min-height: 100vh;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    #inicio{
+        padding: 1% 1%;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        font-size: 1.2rem;
+        h2{
+            color:$col-txt;
+        }
+        button{
+            margin: 1% 1%;
+            padding: 1.2rem;
+            width: 13%;
+            color: #FDFEFE;
+            background:linear-gradient(1deg, rgba(14,102,85,1) 0%, rgba(52,73,94,1) 100%);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-radius: 2rem;
+        }
+        p{
+            font-size: 1.3rem;
+            margin-top: 1%;
+        }
+    }
+    #evolucion{
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        margin: 1% 0;
+        h2{
+            text-align: center;
+            font-style: italic;
+            font-size: 2rem;
+            font-weight: 900;
+            color: $col-tit;
+        }
+        h3{
+            color: darkred;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        p{
+            font-size: 1.3rem;
+            margin-top: 1%;
+        }
+    }
+}
+
+-------------------------------------------------------------------------
+
+nav.scss
+header{
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background:linear-gradient(1deg, rgba(14,102,85,1) 0%, rgba(52,73,94,1) 100%);
+    h1{
+        font-size: 2.2em;
+        font-weight: 700;
+        color: #FDFEFE;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    li{
+        list-style: none;
+    }
+    a{
+        padding: 1rem 2rem;
+        color: #e5e8e8;
+        font-size: 1.4rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.4seg;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.4;
+            color: lightcyan;
+            font-weight: 900;
+        }
+    }
+    
+}
