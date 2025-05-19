@@ -1,0 +1,53 @@
+tareas = []
+
+def agregar_tarea(tarea):
+    tareas.append(tarea)
+    print(f"Tarea '{tarea}' agregada correctamente.")
+
+def eliminar_tarea(indice):
+    try:
+        tarea_eliminada = tareas.pop(indice - 1)
+        print(f"Tarea '{tarea_eliminada}' eliminada correctamente.")
+    except IndexError:
+        print("Error: Índice fuera de rango.")
+
+def mostrar_tareas():
+    if not tareas:
+        print("No hay tareas en la lista.")
+    else:
+        print("\nLista de Tareas:")
+        for i, tarea in enumerate(tareas, start=1):
+            print(f"{i}. {tarea}")
+
+print("Bienvenido a la Lista de Tareas")
+
+while True:
+    print("\nMenú de opciones:")
+    print("1. Agregar tarea")
+    print("2. Eliminar tarea")
+    print("3. Mostrar tareas")
+    print("4. Salir")
+
+    opcion = input("Selecciona una opción (1-4): ")
+
+    if opcion == "4":
+        print("Gracias por usar la lista de tareas. ¡Hasta luego!")
+        break
+
+    elif opcion == "1":
+        tarea = input("Ingresa la tarea: ")
+        agregar_tarea(tarea)
+
+    elif opcion == "2":
+        mostrar_tareas()
+        try:
+            indice = int(input("Ingresa el número de la tarea a eliminar: "))
+            eliminar_tarea(indice)
+        except ValueError:
+            print("Error: Debes ingresar un número válido.")
+
+    elif opcion == "3":
+        mostrar_tareas()
+
+    else:
+        print("Opción no válida. Intenta nuevamente.")

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <!-- Codigo generado por V0 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia Artificial Generativa</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4a41da;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #212529;
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.1);
+            --timeline-bg: var(--primary-color);
+            --footer-bg: var(--dark-color);
+            --footer-text: #ffffff;
+            --transition-speed: 0.3s;
+        }
+        
+        [data-bs-theme="dark"] {
+            --primary-color: #8c83ff;
+            --secondary-color: #6a61fa;
+            --light-color: #343a40;
+            --dark-color: #f8f9fa;
+            --text-color: #f8f9fa;
+            --bg-color: #212529;
+            --card-bg: #343a40;
+            --card-border: rgba(255, 255, 255, 0.1);
+            --timeline-bg: var(--primary-color);
+            --footer-bg: #111111;
+            --footer-text: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 7rem 0;
+            position: relative;
+            overflow: hidden;
+            transition: background var(--transition-speed);
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255, 255, 255, 0.1)" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.4;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            transition: color var(--transition-speed);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .feature-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+            height: 100%;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: color var(--transition-speed);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: background-color var(--transition-speed), border-color var(--transition-speed);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--timeline-bg);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--timeline-bg);
+            transition: background-color var(--transition-speed);
+        }
+        
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+        
+        .navbar {
+            background-color: var(--bg-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color var(--transition-speed);
+        }
+        
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color var(--transition-speed);
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        .img-fluid {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: box-shadow var(--transition-speed);
+        }
+        
+        .bg-light {
+            background-color: var(--light-color) !important;
+            transition: background-color var(--transition-speed);
+        }
+        
+        /* Estilos para el toggle de modo oscuro */
+        .theme-toggle {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            transition: all var(--transition-speed);
+            margin-left: 15px;
+        }
+        
+        .theme-toggle i {
+            font-size: 1.2rem;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Animaciones personalizadas */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Animación para el menú móvil */
+        .navbar-collapse {
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-collapse.collapsing {
+            transform: translateY(-10px);
+        }
+        
+        .navbar-collapse.show {
+            transform: translateY(0);
+        }
+        
+        /* Animación para el botón de scroll arriba */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s, background-color var(--transition-speed);
+            z-index: 1000;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Animación para las tarjetas */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse-animation:hover {
+            animation: pulse 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>
+                <strong>IA Generativa</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio" data-section="inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#definicion" data-section="definicion">Definición</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usos" data-section="usos">Usos Cotidianos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#futuro" data-section="futuro">Futuro</a>
+                    </li>
+                </ul>
+                <div class="theme-toggle ms-3" id="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold mb-4">Inteligencia Artificial Generativa</h1>
+                    <p class="lead mb-4">Descubre cómo la IA está transformando el mundo a través de la creación de contenido original, desde textos e imágenes hasta música y código.</p>
+                    <a href="#definicion" class="btn btn-light btn-lg">Explorar <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <img src="https://via.placeholder.com/600x400?text=IA+Generativa" alt="IA Generativa" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Definición -->
+    <section class="py-5" id="definicion">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="section-title text-center">¿Qué es la IA Generativa?</h2>
+                    <p class="lead">La inteligencia artificial que puede crear contenido nuevo y original a partir de datos existentes.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="https://via.placeholder.com/600x400?text=Definición+IA" alt="Definición de IA Generativa" class="img-fluid">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <h3 class="mb-4">Comprendiendo la IA Generativa</h3>
+                    <p>La Inteligencia Artificial Generativa es un subconjunto de la IA que se especializa en crear contenido nuevo y original. A diferencia de la IA tradicional que se centra en analizar y clasificar datos existentes, la IA generativa puede producir contenido completamente nuevo basado en los patrones que ha aprendido.</p>
+                    <p>Estos sistemas utilizan arquitecturas como las Redes Generativas Antagónicas (GANs), Transformers y Modelos de Difusión para generar:</p>
+                    <ul class="fade-in-list">
+                        <li class="fade-in">Textos coherentes y contextuales</li>
+                        <li class="fade-in">Imágenes realistas o artísticas</li>
+                        <li class="fade-in">Música y composiciones sonoras</li>
+                        <li class="fade-in">Vídeos y animaciones</li>
+                        <li class="fade-in">Código de programación funcional</li>
+                    </ul>
+                    <p>La IA generativa aprende de grandes conjuntos de datos y puede crear contenido que nunca ha existido antes, pero que sigue los patrones y estructuras de los datos con los que fue entrenada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Usos Cotidianos -->
+    <section class="py-5 bg-light" id="usos">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="section-title text-center">Usos en la Vida Cotidiana</h2>
+                    <p class="lead">La IA generativa ya está presente en muchos aspectos de nuestra vida diaria, transformando cómo trabajamos y nos expresamos.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="0">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h4>Creación de Contenido</h4>
+                        <p>Asistentes de escritura que ayudan a redactar correos, artículos y contenido para redes sociales. Herramientas como ChatGPT y Jasper AI están revolucionando cómo creamos contenido escrito.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h4>Diseño y Arte</h4>
+                        <p>Generadores de imágenes como DALL-E, Midjourney y Stable Diffusion permiten crear ilustraciones, diseños y obras de arte a partir de descripciones textuales.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Desarrollo de Software</h4>
+                        <p>Herramientas como GitHub Copilot ayudan a los programadores a escribir código más rápido, sugiriendo líneas completas o funciones basadas en comentarios o código existente.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h4>Música y Audio</h4>
+                        <p>Plataformas como AIVA y Amper Music pueden componer piezas musicales originales para diferentes estados de ánimo, géneros o propósitos comerciales.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4>Traducción y Comunicación</h4>
+                        <p>Sistemas avanzados de traducción que no solo traducen palabras sino que mantienen el contexto y el tono del mensaje original entre diferentes idiomas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
+                    <div class="feature-card p-4 pulse-animation">
+                        <div class="feature-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h4>Comercio Electrónico</h4>
+                        <p>Generación automática de descripciones de productos, recomendaciones personalizadas y asistentes virtuales para mejorar la experiencia de compra online.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del Futuro de la IA -->
+    <section class="py-5" id="futuro">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="800">
+                    <h2 class="section-title text-center">El Futuro de la IA Generativa</h2>
+                    <p class="lead">¿Hacia dónde nos dirigimos? Explorando las posibilidades y desafíos que nos esperan.</p>
+                </div>
+            </div>
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://via.placeholder.com/600x400?text=Futuro+IA" alt="Futuro de la IA" class="img-fluid">
+                </div>
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="timeline">
+                        <div class="timeline-item fade-in">
+                            <h4>Personalización Extrema</h4>
+                            <p>En el futuro cercano, la IA generativa permitirá una personalización sin precedentes en todos los aspectos de nuestra vida digital, desde contenido de entretenimiento hasta productos y servicios adaptados a nuestras preferencias exactas.</p>
+                        </div>
+                        <div class="timeline-item fade-in">
+                            <h4>Colaboración Humano-IA</h4>
+                            <p>Veremos una evolución en la forma en que los humanos y la IA trabajan juntos, con sistemas que no solo ejecutan tareas sino que aportan ideas creativas y soluciones innovadoras en campos como la medicina, la arquitectura y la investigación científica.</p>
+                        </div>
+                        <div class="timeline-item fade-in">
+                            <h4>Democratización de la Creatividad</h4>
+                            <p>Las herramientas de IA generativa harán que la creación de contenido profesional sea accesible para todos, independientemente de sus habilidades técnicas, transformando industrias enteras y creando nuevas oportunidades económicas.</p>
+                        </div>
+                        <div class="timeline-item fade-in">
+                            <h4>Desafíos Éticos y Regulatorios</h4>
+                            <p>El avance de la IA generativa planteará importantes cuestiones sobre propiedad intelectual, privacidad, desinformación y el impacto en el empleo, que requerirán nuevos marcos regulatorios y éticos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-5">
+                            <h3 class="card-title text-center mb-4">Reflexión Final</h3>
+                            <p class="card-text">La IA generativa representa uno de los avances tecnológicos más significativos de nuestra era. Su capacidad para crear contenido original está redefiniendo los límites de lo que consideramos exclusivamente humano: la creatividad.</p>
+                            <p class="card-text">A medida que estas tecnologías continúan evolucionando, nos enfrentamos a un futuro donde la línea entre lo humano y lo artificial se vuelve cada vez más difusa. Esto nos presenta tanto oportunidades extraordinarias como desafíos profundos.</p>
+                            <p class="card-text mb-0">La pregunta ya no es si la IA generativa transformará nuestra sociedad, sino cómo elegiremos dirigir y dar forma a esa transformación para beneficio de toda la humanidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-robot me-2"></i> IA Generativa</h5>
+                    <p>Explorando el presente y futuro de la inteligencia artificial generativa.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white">
+                                <i class="fab fa-twitter fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white">
+                                <i class="fab fa-github fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="mt-2">© 2023 IA Generativa. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de scroll arriba -->
+    <div class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS para animaciones -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script personalizado -->
+    <script>
+        // Inicializar AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                once: true,
+                offset: 100
+            });
+            
+            // Funcionalidad para el menú
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            // Función para activar el enlace del menú correspondiente a la sección visible
+            function setActiveLink() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Llamar a la función al cargar la página y al hacer scroll
+            setActiveLink();
+            window.addEventListener('scroll', setActiveLink);
+            
+            // Scroll suave para los enlaces del menú
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Cerrar el menú móvil si está abierto
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                            bsCollapse.hide();
+                        }
+                    }
+                });
+            });
+            
+            // Animación para elementos con clase fade-in
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 50) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Llamar a la función al cargar la página y al hacer scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Botón de scroll arriba
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
+            function toggleScrollTopBtn() {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            }
+            
+            // Mostrar/ocultar el botón al hacer scroll
+            window.addEventListener('scroll', toggleScrollTopBtn);
+            
+            // Funcionalidad del botón de scroll arriba
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Funcionalidad para el toggle de modo oscuro/claro
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Verificar si hay una preferencia guardada
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlElement.setAttribute('data-bs-theme', savedTheme);
+                updateThemeIcon(savedTheme);
+            }
+            
+            // Función para actualizar el icono del toggle
+            function updateThemeIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'dark') {
+                    icon.className = 'fas fa-moon';
+                } else {
+                    icon.className = 'fas fa-sun';
+                }
+            }
+            
+            // Evento para cambiar el tema
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = htmlElement.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+                
+                // Añadir animación al icono
+                const icon = themeToggle.querySelector('i');
+                icon.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    icon.style.transform = 'rotate(0)';
+                }, 500);
+            });
+            
+            // Animación para la lista de elementos en la sección de definición
+            const listItems = document.querySelectorAll('.fade-in-list li');
+            let delay = 0;
+            
+            listItems.forEach(item => {
+                item.style.transitionDelay = `${delay}ms`;
+                delay += 100;
+            });
+        });
+    </script>
+</body>
+</html>
